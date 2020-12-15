@@ -1,2 +1,4 @@
 # uProcek01
-test
+#Licznik wielokrotny
+
+
