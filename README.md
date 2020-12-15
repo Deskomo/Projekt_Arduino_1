@@ -1,4 +1,4 @@
 # uProcek01
-#Licznik wielokrotny
+#Licznik
 
 
