@@ -6,13 +6,14 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 int l[3] = {0, 0, 0};         // zadekladowanie liczników 
 int poz = 0;                        // zadeklarowanie pozycji 
 const int p1 = 0, p2 = 6, p3 = 12;   // zadeklarowanie pozycji liczników
-int x[3] = {1, 1, 1};
+int x[3] = {1, 1, 0};
+bool wait = false;
 
 void setup() {
   // set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
   // Print a message to the LCD.
-  lcd.print("hello, world!");
+  lcd.print("Licznik 3-krotny");
   Serial.begin(9600);
   pinMode(2, INPUT_PULLUP);
   pinMode(3, INPUT_PULLUP);
@@ -25,6 +26,13 @@ void loop() {
   PuscDelay();
   SetLCD();
   
+  if(wait)
+  {
+    delay(100);
+    wait = false;
+  }
+  Serial.println(analogRead(A0));
+  delay(100);
 }
 
 void SetLCD(){
@@ -43,7 +51,7 @@ void PuscDelay(){
   {
     if(x[i-2] != digitalRead(i) && digitalRead(i) == 1)    // odciśnięcie przycisku
     {
-      delay(50);
+      wait = true;
     }
     x[i-2] = digitalRead(i);
   }
