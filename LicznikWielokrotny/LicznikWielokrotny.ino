@@ -107,7 +107,7 @@ float mean()
 
 void Mikrofon()
 {
-  if(m2 && millis() - d3 > 500)         // MAKSYMALNY ODSTĘP MIĘDZY KLAŚNIĘCIAMI
+  if(m2 && millis() - d3 > 500)         // MINIMALNY ODSTĘP MIĘDZY KLAŚNIĘCIAMI
   {
     m2 = false;
   }
@@ -115,18 +115,13 @@ void Mikrofon()
   {
     m1 = true;
     d3 = millis();
-    Serial.println(l2);
     return;
   }
   if(micro == 0.0f && m1)
   {
     if(millis() - d3 < 100)   // ZMIEŃ CZAS KLAŚNIĘCIA
     {
-  Serial.print(millis() - d3);
-  Serial.print(" Zaliczyło  ");
-  Serial.println(micro);
       m1 = false;
-      Serial.println("coś");
       l2++;
       m2 = true;
       d3 = millis();
