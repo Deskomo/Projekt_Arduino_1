@@ -181,4 +181,4 @@ void setup()
 
 W komendzie setup() ustawiane są parametry dotyczące ekranu LCD, wiadomość w jego pierwszej linijce, oraz tryb pracy pinów wejściowych. 
 
-![Zdjęcie](Zdjecie.png)
+![Zdjęcie](Zdjecie.jpg)
