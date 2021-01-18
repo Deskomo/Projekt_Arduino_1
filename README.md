@@ -35,6 +35,7 @@ Aby podłaczyć ekran LCD do płytki prototypowej należalo przylutować listwę
 
 ## Opis kodu
 
+```
 void SetLCD()
 {
   lcd.setCursor(p1, 1);
@@ -46,11 +47,11 @@ void SetLCD()
   lcd.setCursor(p3, 1);
   lcd.print(l2);
 }
-
+```
 
 Powyższy fragment kodu wysyła informacje do ekranu LCD o wartościach trzech liczników. Zmienne p1, p2, p3 ustawione są na liczby reprezentujące pozycje na ekranie LCD przeznaczone dla wartości liczników. 
 
-
+```
 void Pusc()
 {
   for(int i = 0; i < 2; i++)
@@ -64,11 +65,11 @@ void Pusc()
     x[i] = digitalRead(i+2);
   }
 }
-
+```
 
 Pętla umożliwia przeskoczenie po obu licznikach sterowanych przeciskami. Komenda if porównuje wartość na pinach z wartością poprzedniej pętli, aby stwierdzić czy nastąpiło puszczenie przycisku. Flaga wait zapobiega potencjalnemu drżeniu styków. Flaga wait2 uniemożliwia wejście w warunek odciśnięcia przycisku bez uprzedniego jego przyciśnięciu. Poza warunkiem zapisywana jest wartość aktualna na pinie odpowiedzialnym za przycisk.
 
-
+```
 void Wcisk()
 {
   for(int i = 0; i <= 2; i++)
@@ -80,11 +81,11 @@ void Wcisk()
     }
   }
 }
-
+```
 
 Powyżej jest realizowane wykrywanie wciśnięci przycisku. Inkrementowana zmienna l[i] zostanie wpisana w ekran LCD w wyżej opisanej komendzie SetLCD().
 
-
+```
 void NieCzekaj()
 {
   for (int i = 0; i <= 1; i++)
@@ -95,11 +96,11 @@ void NieCzekaj()
     }
   }
 }
-
+```
 
 Komenda ta odpowiedzialna jest za ustawienie minimalnego czasu puszczeniem a przyciśnięciem przycisku. Zapobiega to drżeniu styków. 
 
-
+```
 float mean()
 {
   float sum = 0;
@@ -114,11 +115,11 @@ float mean()
   return sum / 16.0f;
   
 }
-
+```
 
 Komenta ta wylicza średnią wartość sygnałów danych przez czujnik dźwięku. Czujnik użyty w układzie zwraca wartość binarną odpowiadającą czy urządzenie odebrało dźwiek czy nie. Obliczenie średniej z impulsów umożliwia w pewnym stopniu sprawdzanie intensywności uzyskanego dźwięku.
 
-
+```
 void Mikrofon()
 {
   if(m2 && millis() - d3 > 500)         // MINIMALNY ODSTĘP MIĘDZY KLAŚNIĘCIAMI
@@ -146,11 +147,11 @@ void Mikrofon()
     }
   }
 }
-
+```
 
 W komendzie tej realizowane jest ustawienie parametrów sygnału dźwiękowego. Najpierw sprawdzane jest, czy po poprzednim odebraniu poprawnego sygnału dźwiękowego wystąpił minimalny odstęp. Następnie porównuje się średnią z odebranych sygnałów z mikrofonu z ustawioną wartością. Pozwala to ustawić minimalną głośność sygnału dźwiękowego, który układ ma odbierać jako właściwy. Jeżeli warunek zostanie spełniony zapamiętuje się czas wystąpienia dźwięku i wychodzi się z komendy Mikrofon(). Następnie program oczekuje na otrzymanie wartości zerowej z obliczonej średniej i sprawdza, czy odebrany dźwięk był wystarczająco krótki aby stwierdzić, że było to klaśnięcie. Jeżeli tak, to program inkrementuje licznik oraz zapamiętuje czas od wystąpienia dźwięku. 
 
-
+```
 void loop() 
 {
   NieCzekaj();
@@ -160,11 +161,11 @@ void loop()
   Mikrofon();
   SetLCD();
 }
-
+```
 
 W pętli loop() odtwarzane są w określonej kolejności wcześniej ustalone komendy. 
 
-
+```
 void setup() 
 {
   // set up the LCD's number of columns and rows:
@@ -176,7 +177,7 @@ void setup()
   pinMode(3, INPUT_PULLUP);
   pinMode(4, INPUT_PULLUP);
 }
-
+```
 
 W komendzie setup() ustawiane są parametry dotyczące ekranu LCD, wiadomość w jego pierwszej linijce, oraz tryb pracy pinów wejściowych. 
 
