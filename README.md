@@ -35,7 +35,7 @@ Aby podłaczyć ekran LCD do płytki prototypowej należalo przylutować listwę
 
 ## Opis kodu
 
-```
+```cpp
 void SetLCD()
 {
   lcd.setCursor(p1, 1);
@@ -51,7 +51,7 @@ void SetLCD()
 
 Powyższy fragment kodu wysyła informacje do ekranu LCD o wartościach trzech liczników. Zmienne p1, p2, p3 ustawione są na liczby reprezentujące pozycje na ekranie LCD przeznaczone dla wartości liczników. 
 
-```
+```cpp
 void Pusc()
 {
   for(int i = 0; i < 2; i++)
@@ -69,7 +69,7 @@ void Pusc()
 
 Pętla umożliwia przeskoczenie po obu licznikach sterowanych przeciskami. Komenda if porównuje wartość na pinach z wartością poprzedniej pętli, aby stwierdzić czy nastąpiło puszczenie przycisku. Flaga wait zapobiega potencjalnemu drżeniu styków. Flaga wait2 uniemożliwia wejście w warunek odciśnięcia przycisku bez uprzedniego jego przyciśnięciu. Poza warunkiem zapisywana jest wartość aktualna na pinie odpowiedzialnym za przycisk.
 
-```
+```cpp
 void Wcisk()
 {
   for(int i = 0; i <= 2; i++)
@@ -85,7 +85,7 @@ void Wcisk()
 
 Powyżej jest realizowane wykrywanie wciśnięci przycisku. Inkrementowana zmienna l[i] zostanie wpisana w ekran LCD w wyżej opisanej komendzie SetLCD().
 
-```
+```cpp
 void NieCzekaj()
 {
   for (int i = 0; i <= 1; i++)
@@ -100,7 +100,7 @@ void NieCzekaj()
 
 Komenda ta odpowiedzialna jest za ustawienie minimalnego czasu puszczeniem a przyciśnięciem przycisku. Zapobiega to drżeniu styków. 
 
-```
+```cpp
 float mean()
 {
   float sum = 0;
@@ -119,7 +119,7 @@ float mean()
 
 Komenta ta wylicza średnią wartość sygnałów danych przez czujnik dźwięku. Czujnik użyty w układzie zwraca wartość binarną odpowiadającą czy urządzenie odebrało dźwiek czy nie. Obliczenie średniej z impulsów umożliwia w pewnym stopniu sprawdzanie intensywności uzyskanego dźwięku.
 
-```
+```cpp
 void Mikrofon()
 {
   if(m2 && millis() - d3 > 500)         // MINIMALNY ODSTĘP MIĘDZY KLAŚNIĘCIAMI
@@ -151,7 +151,7 @@ void Mikrofon()
 
 W komendzie tej realizowane jest ustawienie parametrów sygnału dźwiękowego. Najpierw sprawdzane jest, czy po poprzednim odebraniu poprawnego sygnału dźwiękowego wystąpił minimalny odstęp. Następnie porównuje się średnią z odebranych sygnałów z mikrofonu z ustawioną wartością. Pozwala to ustawić minimalną głośność sygnału dźwiękowego, który układ ma odbierać jako właściwy. Jeżeli warunek zostanie spełniony zapamiętuje się czas wystąpienia dźwięku i wychodzi się z komendy Mikrofon(). Następnie program oczekuje na otrzymanie wartości zerowej z obliczonej średniej i sprawdza, czy odebrany dźwięk był wystarczająco krótki aby stwierdzić, że było to klaśnięcie. Jeżeli tak, to program inkrementuje licznik oraz zapamiętuje czas od wystąpienia dźwięku. 
 
-```
+```cpp
 void loop() 
 {
   NieCzekaj();
@@ -165,7 +165,7 @@ void loop()
 
 W pętli loop() odtwarzane są w określonej kolejności wcześniej ustalone komendy. 
 
-```
+```cpp
 void setup() 
 {
   // set up the LCD's number of columns and rows:

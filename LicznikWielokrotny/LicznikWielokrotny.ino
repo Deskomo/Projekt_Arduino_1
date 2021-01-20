@@ -69,7 +69,7 @@ void Pusc()
 
 void Wcisk()
 {
-  for(int i = 0; i <= 2; i++)
+  for(int i = 0; i <= 1; i++)
   {
     if(x[i] != digitalRead(i+2) && digitalRead(i+2) == 0 && !wait[i])    // wciśnięcie przycisku
     {
@@ -107,7 +107,7 @@ float mean()
 
 void Mikrofon()
 {
-  if(m2 && millis() - d3 > 500)         // MINIMALNY ODSTĘP MIĘDZY KLAŚNIĘCIAMI
+  if(m2 && millis() - d3 > 100)         // MINIMALNY ODSTĘP MIĘDZY KLAŚNIĘCIAMI
   {
     m2 = false;
   }
