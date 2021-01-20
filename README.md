@@ -183,5 +183,4 @@ W komendzie setup() ustawiane są parametry dotyczące ekranu LCD, wiadomość w
 
 ![Zdjęcie](Zdjecie.jpg)
 
-[![Tekst(https://img.youtube.com/vi/jtZe4NJzqGI/0.jpg)](https://youtu.be/jtZe4NJzqGI)
 [![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/jtZe4NJzqGI/mq2.jpg?sqp=CJzCoIAG&rs=AOn4CLB50iwrPwsEjMTmYyEApWrGTlAkww)](https://www.youtube.com/watch?v=jtZe4NJzqGI)
